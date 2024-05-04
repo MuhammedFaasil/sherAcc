@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sher_acc_erp/view/pages/today_report_page.dart';
+import 'package:sher_acc_erp/view/pages/home_page.dart';
 import 'package:sher_acc_erp/view/widgets/textfield_widget.dart';
 
 class LoginPage extends StatelessWidget {
@@ -25,7 +25,11 @@ class LoginPage extends StatelessWidget {
               Image.asset('assets/images/name_shersoft.png'),
               const Text(
                 'A Complete Acounting & Inventory Package',
-                style: TextStyle(color: Color(0xff0008B3)),
+                style: TextStyle(
+                    color: Color(0xff0008B3),
+                    fontFamily: 'poppins',
+                    fontWeight: FontWeight.w600,
+                    fontSize: 14),
               ),
               const SizedBox(
                 height: 80,
@@ -63,8 +67,15 @@ class LoginPage extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const TodayReportPage(),
+                                builder: (context) =>  HomePage(),
                               ));
+                        } else {
+                          showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              content: Text('enter user name and password'),
+                            ),
+                          );
                         }
                       },
                       child: const Text(
