@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:sher_acc_erp/view/pages/today_report_page.dart';
 import 'package:sher_acc_erp/view/widgets/textfield_widget.dart';
 
 class LoginPage extends StatelessWidget {
@@ -7,6 +7,8 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController userNameController = TextEditingController();
+    final TextEditingController passwordControlle = TextEditingController();
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -28,9 +30,10 @@ class LoginPage extends StatelessWidget {
               const SizedBox(
                 height: 80,
               ),
-              const TextfieldWidget(
+              TextfieldWidget(
                 icons: 'assets/icons/profile_icon.png',
                 txt: 'Username',
+                controler: userNameController,
               ),
               const SizedBox(
                 height: 40,
@@ -39,6 +42,7 @@ class LoginPage extends StatelessWidget {
                 icons: 'assets/icons/lock_icon.png',
                 txt: 'Password',
                 iconsSufix: Image.asset('assets/icons/Red eye_icon.png'),
+                controler: passwordControlle,
               ),
               const SizedBox(
                 height: 40,
@@ -54,7 +58,16 @@ class LoginPage extends StatelessWidget {
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10)),
                           backgroundColor: const Color(0xff0008B3)),
-                      onPressed: () {},
+                      onPressed: () {
+                        if (userNameController.text.isNotEmpty &&
+                            passwordControlle.text.isNotEmpty) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TodayReportPage(),
+                              ));
+                        }
+                      },
                       child: const Text(
                         'Login',
                         style: TextStyle(color: Colors.white),

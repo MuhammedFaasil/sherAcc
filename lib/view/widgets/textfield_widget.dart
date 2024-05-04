@@ -4,8 +4,9 @@ class TextfieldWidget extends StatelessWidget {
   final String icons;
   final Widget? iconsSufix;
   final String txt;
+  final TextEditingController controler;
   const TextfieldWidget(
-      {super.key, required this.icons, required this.txt, this.iconsSufix});
+      {super.key, required this.icons, required this.txt, this.iconsSufix, required this.controler});
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +23,10 @@ class TextfieldWidget extends StatelessWidget {
           )
         ]),
         child: TextField(
+          controller: controler,
           decoration: InputDecoration(
               prefixIcon: Image.asset(icons),
-              suffixIcon:iconsSufix,
+              suffixIcon: iconsSufix,
               labelText: txt,
               fillColor: Colors.white,
               filled: true,
