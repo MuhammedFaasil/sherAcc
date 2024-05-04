@@ -54,7 +54,6 @@ class LoginPage extends StatelessWidget {
                   width: MediaQuery.sizeOf(context).width,
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          // padding: ,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10)),
                           backgroundColor: const Color(0xff0008B3)),
@@ -64,13 +63,14 @@ class LoginPage extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => TodayReportPage(),
+                                builder: (context) => const TodayReportPage(),
                               ));
                         }
                       },
                       child: const Text(
                         'Login',
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(
+                            color: Colors.white, fontFamily: 'poppins'),
                       )),
                 ),
               ),
@@ -81,7 +81,8 @@ class LoginPage extends StatelessWidget {
                   onPressed: () {},
                   child: const Text(
                     'Create an Account?',
-                    style: TextStyle(color: Color(0xff0008B3)),
+                    style: TextStyle(
+                        color: Color(0xff0008B3), fontFamily: 'poppins'),
                   )),
             ],
           ),

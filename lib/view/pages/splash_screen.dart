@@ -82,7 +82,8 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           const Text(
             'Company Profile',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+            style:
+                TextStyle(fontWeight: FontWeight.w700, fontFamily: 'poppins'),
           )
         ],
       ),

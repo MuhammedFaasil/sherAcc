@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sher_acc_erp/view/pages/login_page.dart';
 import 'package:sher_acc_erp/view/pages/splash_screen.dart';
 
 void main() {

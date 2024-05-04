@@ -6,7 +6,11 @@ class TextfieldWidget extends StatelessWidget {
   final String txt;
   final TextEditingController controler;
   const TextfieldWidget(
-      {super.key, required this.icons, required this.txt, this.iconsSufix, required this.controler});
+      {super.key,
+      required this.icons,
+      required this.txt,
+      this.iconsSufix,
+      required this.controler});
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +32,7 @@ class TextfieldWidget extends StatelessWidget {
               prefixIcon: Image.asset(icons),
               suffixIcon: iconsSufix,
               labelText: txt,
+              labelStyle: const TextStyle(fontFamily: 'poppins'),
               fillColor: Colors.white,
               filled: true,
               border: OutlineInputBorder(
