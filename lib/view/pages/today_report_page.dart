@@ -1,24 +1,45 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:sher_acc_erp/view/widgets/branch_select_widget.dart';
 import 'package:sher_acc_erp/view/widgets/financial_year_add_widget.dart';
+import 'package:sher_acc_erp/view/widgets/sales_summary_progrress_bar_widget.dart';
+import 'package:sher_acc_erp/view/widgets/summary_count_widget.dart';
 
 class TodayReportPage extends StatelessWidget {
   const TodayReportPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Color(0xffF2F2F2),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 16,
-            ),
-            FinancialYearWidget(),
-          
-          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+          child: Column(
+            children: [
+            
+              FinancialYearDisplay(),
+              SizedBox(
+                height: 10,
+              ),
+              BranchSelectWidget(),
+              SizedBox(
+                height: 10,
+              ),
+              SummaryCountWidget(),
+              SizedBox(
+                height: 10,
+              ),
+              SummaryProgrressBarWidget(
+                text: 'Sales Summary',
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              SummaryProgrressBarWidget(
+                text: 'Parchase Summary',
+              ),
+            ],
+          ),
         ),
       ),
     );
