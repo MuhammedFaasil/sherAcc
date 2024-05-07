@@ -5,6 +5,7 @@ import 'package:sher_acc_erp/view/widgets/sales_summary_progrress_bar_widget.dar
 import 'package:sher_acc_erp/view/widgets/summary_count_widget.dart';
 
 class TodayReportPage extends StatelessWidget {
+  static const routePath = '/todayReportPage';
   const TodayReportPage({super.key});
 
   @override
@@ -16,7 +17,6 @@ class TodayReportPage extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           child: Column(
             children: [
-            
               FinancialYearDisplay(),
               SizedBox(
                 height: 10,

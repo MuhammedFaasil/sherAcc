@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sher_acc_erp/view/pages/splash_screen.dart';
+import 'package:sher_acc_erp/router/router.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,9 +10,9 @@ class MyApp extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp.router(
       title: 'SherAcc Erp',
-      home: SplashScreen(),
+      routerConfig: router,
     );
   }
 }

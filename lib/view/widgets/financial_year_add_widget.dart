@@ -49,10 +49,8 @@ class FinancialYearDisplay extends StatelessWidget {
                   borderRadius: BorderRadius.circular(2),
                   border: Border.all(width: 1, color: const Color(0xffA3A3A3)),
                 ),
-                child: Expanded(
-                  child: Text(
-                    state['from'].toString(),
-                  ),
+                child: Text(
+                  state['from'].toString(),
                 ),
               ),
             ),

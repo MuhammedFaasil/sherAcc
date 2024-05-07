@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sher_acc_erp/view/widgets/dropdown_widget.dart';
 
 class BranchSelectWidget extends StatelessWidget {
   const BranchSelectWidget({super.key});
@@ -21,7 +22,9 @@ class BranchSelectWidget extends StatelessWidget {
               fontFamily: 'poppins',
               fontWeight: FontWeight.w500,
             ),
-          )
+          ),
+          Spacer(),
+          DropDownWidget(items: ['SHOP', ''])
         ],
       ),
     );

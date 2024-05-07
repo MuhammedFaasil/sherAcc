@@ -1,46 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:go_router/go_router.dart';
 import 'package:sher_acc_erp/view/pages/login_page.dart';
 
-class SplashScreen extends StatefulWidget {
+class SplashScreen extends StatelessWidget {
+  static const routePath = '/splashScreen';
+
   const SplashScreen({super.key});
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
+  Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
 
+    final scaffoldKey = GlobalKey<ScaffoldState>();
+
     Future.delayed(const Duration(seconds: 4), () {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => const LoginPage(),
-      ));
+      context.go(LoginPage.routePath);
     });
-  }
 
-  @override
-  void dispose() {
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-        overlays: SystemUiOverlay.values);
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       body: Container(
-        width: MediaQuery.sizeOf(context).width,
-        height: MediaQuery.sizeOf(context).height,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
         decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage(
-                  'assets/images/spalsh_baground_2.png',
-                ),
-                fit: BoxFit.cover)),
+          image: DecorationImage(
+            image: AssetImage('assets/images/spalsh_baground_2.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -48,57 +36,25 @@ class _SplashScreenState extends State<SplashScreen> {
               height: 80,
               width: 80,
               decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('assets/images/logo_shersoft.png'),
-                      fit: BoxFit.fill)),
+                image: DecorationImage(
+                  image: AssetImage('assets/images/logo_shersoft.png'),
+                  fit: BoxFit.fill,
+                ),
+              ),
             ),
             Container(
               height: 55,
               width: 190,
               decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('assets/images/name_shersoft.png'),
-                      fit: BoxFit.fill)),
+                image: DecorationImage(
+                  image: AssetImage('assets/images/name_shersoft.png'),
+                  fit: BoxFit.fill,
+                ),
+              ),
             ),
           ],
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            height: 40,
-            width: 40,
-            decoration: BoxDecoration(
-                color: const Color(0xff0008B3),
-                borderRadius: BorderRadius.circular(100),
-                image: const DecorationImage(
-                  image: AssetImage('assets/icons/profile_outlined_icon.png'),
-                )),
-          ),
-          const SizedBox(
-            width: 8,
-          ),
-          const Text(
-            'Company Profile',
-            style:
-                TextStyle(fontWeight: FontWeight.w700, fontFamily: 'poppins'),
-          )
-        ],
-      ),
-      //         Stack(
-      //   children: [
-      //     Positioned(
-      //         top: 100,
-      //         right: -60,
-      //         child: Image.asset('assets/images/splash screen baground.png')),
-      //     Positioned(
-      //         child: Column(
-      //       children: [],
-      //     ))
-      //   ],
-      // )
     );
   }
 }

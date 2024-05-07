@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:sher_acc_erp/view/pages/home_page.dart';
 import 'package:sher_acc_erp/view/widgets/textfield_widget.dart';
 
 class LoginPage extends StatelessWidget {
+  static const routePath = '/loginPage';
   const LoginPage({super.key});
 
   @override
@@ -64,11 +66,7 @@ class LoginPage extends StatelessWidget {
                       onPressed: () {
                         if (userNameController.text.isNotEmpty &&
                             passwordControlle.text.isNotEmpty) {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>  HomePage(),
-                              ));
+                          context.go(HomePage.routePath);
                         } else {
                           showDialog(
                             context: context,

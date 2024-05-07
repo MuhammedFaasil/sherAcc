@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:sher_acc_erp/view/controller/bloc/financial_year_bloc/financial_year_bloc.dart';
+import 'package:sher_acc_erp/view/pages/dash_page.dart';
 import 'package:sher_acc_erp/view/pages/today_report_page.dart';
 
 class HomePage extends HookWidget {
+  static const routePath = '/homePage';
   final List<String> appbarImages = [
     'assets/icons/Calendar_icon.png',
     'assets/icons/Dashboard_icon.png',
@@ -46,7 +48,7 @@ class HomePage extends HookWidget {
 
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(80),
+        preferredSize: const Size.fromHeight(100),
         child: Container(
           color: const Color(0xff0008B3),
           child: Padding(
@@ -102,11 +104,7 @@ class HomePage extends HookWidget {
               create: (context) => DateRangeBloc(),
               child: const TodayReportPage(),
             ),
-            Container(
-              width: MediaQuery.sizeOf(context).width,
-              height: MediaQuery.sizeOf(context).height,
-              color: Colors.amber,
-            ),
+            const DashPage(),
             Container(
               width: MediaQuery.sizeOf(context).width,
               height: MediaQuery.sizeOf(context).height,
