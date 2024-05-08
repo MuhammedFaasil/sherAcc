@@ -12,25 +12,27 @@ class InventoryReportPage extends StatelessWidget {
       backgroundColor: const Color(0xffF2F2F2),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        child: Column(
-          children: [
-            GridView.builder(
-              shrinkWrap: true,
-              physics: const ClampingScrollPhysics(),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 10,
-                  mainAxisExtent: 150,
-                  crossAxisSpacing: 10),
-              itemCount: 8,
-              itemBuilder: (context, index) {
-                return ItemsGridWidget(
-                    onTap: () {},
-                    iconsUrl: constants.inventoryReportImages[index],
-                    nameTxt: constants.inventoryReportTxt[index]);
-              },
-            )
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              GridView.builder(
+                shrinkWrap: true,
+                physics: const ClampingScrollPhysics(),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 10,
+                    mainAxisExtent: 150,
+                    crossAxisSpacing: 10),
+                itemCount: 8,
+                itemBuilder: (context, index) {
+                  return ItemsGridWidget(
+                      onTap: () {},
+                      iconsUrl: constants.inventoryReportImages[index],
+                      nameTxt: constants.inventoryReportTxt[index]);
+                },
+              )
+            ],
+          ),
         ),
       ),
     );

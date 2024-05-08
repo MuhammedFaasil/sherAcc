@@ -55,44 +55,47 @@ class StatementPage extends StatelessWidget {
               //     ),
               //   ),
               // )
-              DataTable(
-                  showBottomBorder: true,
-                  headingRowHeight: 40,
+              SizedBox(
+                width: MediaQuery.sizeOf(context).width,
+                child: DataTable(
+                    showBottomBorder: true,
+                    headingRowHeight: 40,
 
-                  // decoration: const BoxDecoration(
-                  //     borderRadius: BorderRadius.all(Radius.circular(20))),
-                  headingTextStyle: const TextStyle(
-                      color: Colors.white, fontFamily: 'poppins'),
-                  headingRowColor:
-                      const MaterialStatePropertyAll(Color(0xff0008B3)),
-                  dataRowMaxHeight: 30,
-                  dataRowMinHeight: 30,
-                  dataRowColor: const MaterialStatePropertyAll(Colors.white),
-                  columnSpacing: 100,
-                  border: TableBorder.all(
-                      color: const Color.fromARGB(255, 195, 194, 194),
-                      width: .4),
-                  columns: const [
-                    DataColumn(label: Text('Party')),
-                    DataColumn(label: Text('Debit')),
-                    DataColumn(label: Text('Credit')),
-                  ],
-                  rows: [
-                    for (int i = 0; i <= 15; i++)
-                      const DataRow(
-                        cells: [
-                          DataCell(
-                            Text(''),
-                          ),
-                          DataCell(
-                            Text(''),
-                          ),
-                          DataCell(
-                            Text(''),
-                          ),
-                        ],
-                      ),
-                  ]),
+                    // decoration: const BoxDecoration(
+                    //     borderRadius: BorderRadius.all(Radius.circular(20))),
+                    headingTextStyle: const TextStyle(
+                        color: Colors.white, fontFamily: 'poppins'),
+                    headingRowColor:
+                        const MaterialStatePropertyAll(Color(0xff0008B3)),
+                    dataRowMaxHeight: 30,
+                    dataRowMinHeight: 30,
+                    dataRowColor: const MaterialStatePropertyAll(Colors.white),
+                    columnSpacing: 100,
+                    border: TableBorder.all(
+                        color: const Color.fromARGB(255, 195, 194, 194),
+                        width: .4),
+                    columns: const [
+                      DataColumn(label: Text('Party')),
+                      DataColumn(label: Text('Debit')),
+                      DataColumn(label: Text('Credit')),
+                    ],
+                    rows: [
+                      for (int i = 0; i <= 15; i++)
+                        const DataRow(
+                          cells: [
+                            DataCell(
+                              Text(''),
+                            ),
+                            DataCell(
+                              Text(''),
+                            ),
+                            DataCell(
+                              Text(''),
+                            ),
+                          ],
+                        ),
+                    ]),
+              ),
               const SizedBox(
                 height: 20,
               ),

@@ -13,7 +13,7 @@ class FinancialYearDisplay extends StatelessWidget {
       builder: (context, state) => Container(
         padding: const EdgeInsets.symmetric(horizontal: 5),
         height: 35,
-        width: 380,
+        width: MediaQuery.sizeOf(context).width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
           color: Colors.white,

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class SummaryProgrressBarWidget extends StatelessWidget {
-  final String text; 
+  final String text;
   const SummaryProgrressBarWidget({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-      width: 360,
+      width: MediaQuery.sizeOf(context).width,
       height: 200,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5), color: Colors.white),
@@ -17,8 +17,8 @@ class SummaryProgrressBarWidget extends StatelessWidget {
         children: [
           Text(
             text,
-            style:
-                const TextStyle(fontFamily: 'poppins', fontWeight: FontWeight.w500),
+            style: const TextStyle(
+                fontFamily: 'poppins', fontWeight: FontWeight.w500),
           ),
           const SizedBox(
             height: 10,
@@ -30,8 +30,8 @@ class SummaryProgrressBarWidget extends StatelessWidget {
                   children: [
                     LinearProgressIndicator(
                       value: .7,
-                      valueColor:
-                          const AlwaysStoppedAnimation<Color>(Color(0xff0008B3)),
+                      valueColor: const AlwaysStoppedAnimation<Color>(
+                          Color(0xff0008B3)),
                       backgroundColor: Colors.grey[200],
                     ),
                     const SizedBox(

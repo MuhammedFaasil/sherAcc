@@ -8,35 +8,39 @@ class AppbarWidgget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.bottomCenter,
       color: const Color(0xff0008B3),
       height: 100,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.end,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          IconButton(
-              onPressed: onPressed,
-              icon: const Icon(
-                Icons.arrow_back_ios_new_rounded,
-                color: Colors.white,
-              )),
-          const SizedBox(
-            width: 110,
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Text(
-                headTxt,
-                style: const TextStyle(
-                    fontFamily: 'poppins',
-                    fontSize: 19,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                InkWell(
+                  onTap: onPressed,
+                  child: const Icon(
+                    Icons.arrow_back_ios_new_rounded,
                     color: Colors.white,
-                    fontWeight: FontWeight.w500),
-              ),
-              const SizedBox(
-                height: 8,
-              )
-            ],
+                  ),
+                ),
+                Expanded(
+                  child: Center(
+                    child: Text(
+                      headTxt,
+                      style: const TextStyle(
+                        fontFamily: 'poppins',
+                        fontSize: 19,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),

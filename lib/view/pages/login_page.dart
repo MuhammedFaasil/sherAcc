@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sher_acc_erp/core/constants/loginpage_constants/login_page_constants.dart';
 import 'package:sher_acc_erp/view/pages/home_page.dart';
 import 'package:sher_acc_erp/view/widgets/textfield_widget.dart';
 
@@ -11,43 +12,44 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextEditingController userNameController = TextEditingController();
     final TextEditingController passwordControlle = TextEditingController();
+    final constants = LoginConstants();
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         body: Container(
           height: MediaQuery.sizeOf(context).height,
           width: MediaQuery.sizeOf(context).width,
-          decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage('assets/images/baground_login.png'))),
+          decoration: BoxDecoration(
+              image:
+                  DecorationImage(image: AssetImage(constants.bagroundImgUrl))),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('assets/images/logo_shersoft.png'),
-              Image.asset('assets/images/name_shersoft.png'),
-              const Text(
-                'A Complete Acounting & Inventory Package',
-                style: TextStyle(
+              Image.asset(constants.logoImgUrl),
+              Image.asset(constants.logoTxtImgUrl),
+              Text(
+                constants.logoTxt,
+                style: const TextStyle(
                     color: Color(0xff0008B3),
-                    fontFamily: 'poppins',
-                    fontWeight: FontWeight.w600,
-                    fontSize: 14),
+                    fontFamily: 'times roman',
+                    // fontWeight: FontWeight.w600,
+                    fontSize: 15),
               ),
               const SizedBox(
                 height: 80,
               ),
               TextfieldWidget(
-                icons: 'assets/icons/profile_icon.png',
-                txt: 'Username',
+                icons: constants.userNameIcon,
+                txt: constants.userNameTxt,
                 controler: userNameController,
               ),
               const SizedBox(
                 height: 40,
               ),
               TextfieldWidget(
-                icons: 'assets/icons/lock_icon.png',
-                txt: 'Password',
-                iconsSufix: Image.asset('assets/icons/Red eye_icon.png'),
+                icons: constants.passwordIcon,
+                txt: constants.passwordTxt,
+                iconsSufix: Image.asset(constants.eyeIcon),
                 controler: passwordControlle,
               ),
               const SizedBox(
@@ -76,9 +78,9 @@ class LoginPage extends StatelessWidget {
                           );
                         }
                       },
-                      child: const Text(
-                        'Login',
-                        style: TextStyle(
+                      child: Text(
+                        constants.loginTxt,
+                        style: const TextStyle(
                             color: Colors.white, fontFamily: 'poppins'),
                       )),
                 ),
@@ -88,9 +90,9 @@ class LoginPage extends StatelessWidget {
               ),
               TextButton(
                   onPressed: () {},
-                  child: const Text(
-                    'Create an Account?',
-                    style: TextStyle(
+                  child: Text(
+                    constants.createACTxt,
+                    style: const TextStyle(
                         color: Color(0xff0008B3), fontFamily: 'poppins'),
                   )),
             ],
