@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class DropDownWidget extends HookWidget {
@@ -21,8 +19,10 @@ class DropDownWidget extends HookWidget {
             child: DropdownButton<String>(
           value: dropdownValue.value,
           isExpanded: true,
-          icon: const Icon(Icons.keyboard_arrow_down_rounded),
-          // style: TextStyle(color: Colors.black),
+          icon: const Icon(
+            Icons.keyboard_arrow_down_rounded,
+            color: Colors.black,
+          ),
           onChanged: (String? value) {
             if (value != null) {
               dropdownValue.value = value;
@@ -35,7 +35,7 @@ class DropDownWidget extends HookWidget {
               child: Center(
                 child: Text(
                   value,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontFamily: 'poppins',
                       fontWeight: FontWeight.w500,
                       fontSize: 13),

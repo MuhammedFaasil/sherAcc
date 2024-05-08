@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:sher_acc_erp/view/pages/login_page.dart';
+import 'package:go_router/go_router.dart';
+import 'package:sher_acc_erp/core/constants/dashboard_constants.dart/dashboard_constants.dart';
+import 'package:sher_acc_erp/view/pages/expenses_page.dart';
+import 'package:sher_acc_erp/view/pages/statement_page.dart';
 
 class DashPage extends StatelessWidget {
+  static const rotePath = '/dashPage';
   const DashPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    List dashTxt = [
-      'Statement',
-      'Expenses',
-      'Cash&\n  Bank',
-      'Recievable&\n     Payble'
-    ];
-
-    List dashImages = [
-      'assets/icons/statement_icon.png',
-      'assets/icons/expenses_icon.png',
-      'assets/icons/Cash_bank_icon.png',
-      'assets/icons/payable_icon.png'
+    final constants = DashBoardConstants();
+    final List pages = [
+      StatementPage.rotePath,
+      ExpensesPage.routPath,
+      ExpensesPage.routPath,
+      ExpensesPage.routPath,
     ];
 
     return Scaffold(
@@ -38,11 +36,7 @@ class DashPage extends StatelessWidget {
               itemBuilder: (context, index) {
                 return InkWell(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const LoginPage(),
-                        ));
+                    context.push(pages[index]!);
                   },
                   child: Container(
                     width: 170,
@@ -61,13 +55,13 @@ class DashPage extends StatelessWidget {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(100),
                               color: const Color(0xff0008B3)),
-                          child: Image.asset(dashImages[index]),
+                          child: Image.asset(constants.dashImages[index]),
                         ),
                         const SizedBox(
                           height: 10,
                         ),
                         Text(
-                          dashTxt[index],
+                          constants.dashTxt[index],
                           style: const TextStyle(
                               fontSize: 15,
                               fontFamily: 'poppins',

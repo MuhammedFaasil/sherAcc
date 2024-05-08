@@ -15,46 +15,48 @@ class SplashScreen extends StatelessWidget {
     final scaffoldKey = GlobalKey<ScaffoldState>();
 
     Future.delayed(const Duration(seconds: 4), () {
-      context.go(LoginPage.routePath);
+      context.pushReplacement(LoginPage.routePath);
     });
 
     return Scaffold(
       key: scaffoldKey,
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/images/spalsh_baground_2.png'),
-            fit: BoxFit.cover,
+      body: Builder(builder: (context) {
+        return Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/spalsh_baground_2.png'),
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              height: 80,
-              width: 80,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/images/logo_shersoft.png'),
-                  fit: BoxFit.fill,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                height: 80,
+                width: 80,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/logo_shersoft.png'),
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
-            ),
-            Container(
-              height: 55,
-              width: 190,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/images/name_shersoft.png'),
-                  fit: BoxFit.fill,
+              Container(
+                height: 55,
+                width: 190,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/name_shersoft.png'),
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
-            ),
-          ],
-        ),
-      ),
+            ],
+          ),
+        );
+      }),
     );
   }
 }

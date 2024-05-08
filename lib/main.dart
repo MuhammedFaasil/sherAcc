@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sher_acc_erp/router/router.dart';
+import 'package:sher_acc_erp/core/router/router.dart';
 
 void main() {
   runApp(const MyApp());
