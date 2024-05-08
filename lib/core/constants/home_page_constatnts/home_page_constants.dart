@@ -20,7 +20,7 @@ class HomePageConstants {
     'Account Report',
     'Inventory Report',
     'Report',
-    'Record',
+    'Record List',
     'Settings',
     'Tools',
   ];

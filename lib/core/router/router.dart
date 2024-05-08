@@ -18,7 +18,7 @@ final router = GoRouter(initialLocation: SplashScreen.routePath, routes: [
   ),
   GoRoute(
     path: HomePage.routePath,
-    builder: (context, state) => HomePage(),
+    builder: (context, state) => const HomePage(),
   ),
   GoRoute(
     path: TodayReportPage.routePath,

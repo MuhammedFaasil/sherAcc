@@ -8,12 +8,16 @@ import 'package:sher_acc_erp/view/pages/accounts_report_page.dart';
 import 'package:sher_acc_erp/view/pages/dash_page.dart';
 import 'package:sher_acc_erp/view/pages/inventory_page.dart';
 import 'package:sher_acc_erp/view/pages/inventory_report_page.dart';
+import 'package:sher_acc_erp/view/pages/record_list_page.dart';
+import 'package:sher_acc_erp/view/pages/report_page.dart';
+import 'package:sher_acc_erp/view/pages/settings_page.dart';
 import 'package:sher_acc_erp/view/pages/today_report_page.dart';
+import 'package:sher_acc_erp/view/pages/tools_page.dart';
 
 class HomePage extends HookWidget {
   static const routePath = '/homePage';
 
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -90,26 +94,10 @@ class HomePage extends HookWidget {
             const AccountsPage(),
             const AccountsReportPage(),
             const InventoryReportPage(),
-            Container(
-              width: MediaQuery.sizeOf(context).width,
-              height: MediaQuery.sizeOf(context).height,
-              color: Colors.amber,
-            ),
-            Container(
-              width: MediaQuery.sizeOf(context).width,
-              height: MediaQuery.sizeOf(context).height,
-              color: Colors.amber,
-            ),
-            Container(
-              width: MediaQuery.sizeOf(context).width,
-              height: MediaQuery.sizeOf(context).height,
-              color: Colors.amber,
-            ),
-            Container(
-              width: MediaQuery.sizeOf(context).width,
-              height: MediaQuery.sizeOf(context).height,
-              color: Colors.amber,
-            ),
+            const ReportPage(),
+            const RecordListPage(),
+            const SettingsPage(),
+            const ToolsPage(),
           ]),
     );
   }
