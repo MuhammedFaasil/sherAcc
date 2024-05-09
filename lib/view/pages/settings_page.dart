@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:sher_acc_erp/core/constants/app_settings_constants/app_settings_constants.dart';
 import 'package:sher_acc_erp/view/widgets/app_settings_widget.dart';
 import 'package:sher_acc_erp/view/widgets/button_widget.dart';
+import 'package:sher_acc_erp/view/widgets/switch_button_widget.dart';
 
-class SettingsPage extends StatelessWidget {
+class SettingsPage extends HookWidget {
   const SettingsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var onChanged = useState<bool>(false);
     final constants = AppSettingsConstants();
     return Scaffold(
       backgroundColor: const Color(0xffF2F2F2),
@@ -93,7 +96,13 @@ class SettingsPage extends StatelessWidget {
                     constants.userTxt,
                     style: const TextStyle(
                         fontFamily: 'poppins', fontWeight: FontWeight.w500),
-                  )
+                  ),
+                  const Spacer(),
+                  SwitchWidget(
+                      onChanged: (newValue) {
+                        onChanged.value = newValue;
+                      },
+                      value: onChanged.value)
                 ],
               ),
             ),

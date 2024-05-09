@@ -3,7 +3,18 @@ import 'package:flutter/material.dart';
 class AppbarWidgget extends StatelessWidget {
   final String headTxt;
   final void Function()? onPressed;
-  const AppbarWidgget({super.key, required this.headTxt, this.onPressed});
+  final String? iconfirst;
+  final String? iconSecond;
+  final Function()? onTapFirst;
+  final Function()? onTapSecond;
+  const AppbarWidgget(
+      {super.key,
+      required this.headTxt,
+      this.onPressed,
+      this.iconfirst,
+      this.iconSecond,
+      this.onTapFirst,
+      this.onTapSecond});
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +37,9 @@ class AppbarWidgget extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
+                const SizedBox(
+                  width: 25,
+                ),
                 Expanded(
                   child: Center(
                     child: Text(
@@ -38,6 +52,21 @@ class AppbarWidgget extends StatelessWidget {
                       ),
                     ),
                   ),
+                ),
+                InkWell(
+                  onTap: onTapFirst,
+                  child: iconfirst != null
+                      ? Image.asset(iconfirst!)
+                      : const SizedBox(),
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                GestureDetector(
+                  onTap: onTapSecond,
+                  child: iconfirst != null
+                      ? Image.asset(iconSecond!)
+                      : const SizedBox(),
                 ),
               ],
             ),

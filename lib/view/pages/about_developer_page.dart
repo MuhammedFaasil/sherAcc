@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sher_acc_erp/core/constants/about_developer_constants/about_developer_constants.dart';
 import 'package:sher_acc_erp/view/widgets/appbar_widget.dart';
+import 'package:sher_acc_erp/view/widgets/inffo_container_widget.dart';
 
 class AboutDeveloperPage extends StatelessWidget {
   static const routePath = '/aboutdeveloperPage';
@@ -9,6 +10,8 @@ class AboutDeveloperPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final constants = AboutDeveloperConstants();
+
     return Scaffold(
       backgroundColor: const Color(0xffF2F2F2),
       appBar: PreferredSize(
@@ -26,7 +29,7 @@ class AboutDeveloperPage extends StatelessWidget {
           children: [
             Container(
               alignment: Alignment.center,
-              child: Image.asset('assets/images/logo_image_2.png'),
+              child: Image.asset(constants.logoUrl),
             ),
             // SizedBox(
             //   width: MediaQuery.sizeOf(context).width,
@@ -77,22 +80,24 @@ class AboutDeveloperPage extends StatelessWidget {
                   width: 20,
                   height: 20,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: const Color(0xff0008B3)),
+                    borderRadius: BorderRadius.circular(50),
+                    color: const Color(0xff0008B3),
+                  ),
+                  child: Image.asset(constants.locationUrl),
                 ),
                 const SizedBox(
                   width: 8,
                 ),
-                const Text(
-                  'J.N.Road, Perinthalmanna',
-                  style: TextStyle(
+                Text(
+                  constants.roadTxt,
+                  style: const TextStyle(
                       fontFamily: 'times roman',
                       color: Color(0xff0008B3),
                       fontSize: 17),
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             Container(
@@ -102,8 +107,8 @@ class AboutDeveloperPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8), color: Colors.white),
               child: Center(
                 child: Text(
-                  'SherAcc ERP',
-                  style: TextStyle(
+                  constants.erpTxt,
+                  style: const TextStyle(
                       fontFamily: 'times roman',
                       fontWeight: FontWeight.w700,
                       color: Color(0xff0008B3),
@@ -111,17 +116,69 @@ class AboutDeveloperPage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
+              height: 17,
+            ),
+            InfoWidget(txt: constants.numberTxt, icons: constants.numberIcon),
+            const SizedBox(
               height: 10,
             ),
-            Container(
-              width: MediaQuery.sizeOf(context).width,
-              height: 60,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8), color: Colors.white),
-              child: Row(
-                children: [],
-              ),
+            InfoWidget(txt: constants.webTxt, icons: constants.webIcon),
+            const SizedBox(
+              height: 10,
+            ),
+            InfoWidget(txt: constants.mailTxt, icons: constants.mailIcon),
+            const SizedBox(
+              height: 30,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                for (int i = 0; i < 3; i++)
+                  Row(
+                    children: [
+                      Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: const Color(0xff0008B3),
+                        ),
+                        child: Image.asset(constants.gadgetIcons[i]),
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      )
+                    ],
+                  ),
+              ],
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            GridView.builder(
+              itemCount: 6,
+              shrinkWrap: true,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 10,
+                  crossAxisCount: 3,
+                  mainAxisExtent: 40),
+              itemBuilder: (context, index) {
+                return Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Colors.white),
+                  child: Text(
+                    constants.gridListTxts[index],
+                    style: const TextStyle(
+                        fontFamily: 'poppins',
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xff0008B3)),
+                  ),
+                );
+              },
             )
           ],
         ),

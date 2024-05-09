@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sher_acc_erp/core/constants/software_settings_settings/software_settings_constants.dart';
+import 'package:sher_acc_erp/view/pages/other_registration_page.dart';
+import 'package:sher_acc_erp/view/pages/software_general_setting_page.dart';
 import 'package:sher_acc_erp/view/widgets/appbar_widget.dart';
 import 'package:sher_acc_erp/view/widgets/items_grid_widget.dart';
 
@@ -10,6 +12,14 @@ class SoftWareSettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List pageList = [
+      SoftwareGeneralPage.routePath,
+      SoftwareGeneralPage.routePath,
+      OtherRegistrationPage.routePath,
+      SoftwareGeneralPage.routePath,
+      SoftwareGeneralPage.routePath,
+      SoftwareGeneralPage.routePath,
+    ];
     final constants = SoftwareSettingsConstants();
     return Scaffold(
       backgroundColor: const Color(0xffF2F2F2),
@@ -37,7 +47,9 @@ class SoftWareSettingsPage extends StatelessWidget {
               itemCount: 6,
               itemBuilder: (context, index) {
                 return ItemsGridWidget(
-                    onTap: () {},
+                    onTap: () {
+                      context.push(pageList[index]);
+                    },
                     iconsUrl: constants.softwareSettingsIcList[index],
                     nameTxt: constants.softwareSettingsTxtList[index]);
               },
