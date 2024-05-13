@@ -28,7 +28,7 @@ class StatementPage extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              const BranchSelectWidget(),
+              const BranchSelectWidget(headTxt: 'Branch', items: ['SHOPE'],),
               const SizedBox(
                 height: 10,
               ),

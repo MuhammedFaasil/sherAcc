@@ -12,7 +12,7 @@ class FinancialYearDisplay extends StatelessWidget {
     return BlocBuilder<DateRangeBloc, Map<String, DateTime>>(
       builder: (context, state) => Container(
         padding: const EdgeInsets.symmetric(horizontal: 5),
-        height: 35,
+        height: 40,
         width: MediaQuery.sizeOf(context).width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),

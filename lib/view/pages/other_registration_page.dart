@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sher_acc_erp/view/widgets/appbar_widget.dart';
+import 'package:sher_acc_erp/view/widgets/dropdown_widget.dart';
 import 'package:sher_acc_erp/view/widgets/three_button_widget.dart';
 
 class OtherRegistrationPage extends StatelessWidget {
@@ -20,11 +21,11 @@ class OtherRegistrationPage extends StatelessWidget {
           },
         ),
       ),
-      body: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: Column(
           children: [
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ThreeButtons(
@@ -46,6 +47,84 @@ class OtherRegistrationPage extends StatelessWidget {
                   iconUrl: 'assets/icons/Delete_icon.png',
                 ),
               ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Type',
+                    style: TextStyle(
+                        fontFamily: 'poppins',
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                      width: MediaQuery.sizeOf(context).width,
+                      height: 40,
+                      color: Colors.white,
+                      child: const DropDownWidget(
+                          items: ['Brand', 'items', 'customer'])),
+                ],
+              ),    
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            SizedBox(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Name',
+                    style: TextStyle(
+                        fontFamily: 'poppins',
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                      width: MediaQuery.sizeOf(context).width,
+                      height: 40,
+                      color: Colors.white,
+                      child: const DropDownWidget(
+                          items: ['Brand', 'items', 'customer'])),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            SizedBox(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Description',
+                    style: TextStyle(
+                        fontFamily: 'poppins',
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                      width: MediaQuery.sizeOf(context).width,
+                      height: 40,
+                      color: Colors.white,
+                      child: const DropDownWidget(
+                          items: ['Brand', 'items', 'customer'])),
+                ],
+              ),
             )
           ],
         ),

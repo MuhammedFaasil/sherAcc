@@ -25,7 +25,9 @@ class ExpensesPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Column(
           children: [
-            const BranchSelectWidget(),
+            const BranchSelectWidget(
+              headTxt: 'Branch', items: ['SHOPE'],
+            ),
             const SizedBox(
               height: 30,
             ),

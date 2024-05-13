@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:go_router/go_router.dart';
 import 'package:sher_acc_erp/core/constants/app_settings_constants/app_settings_constants.dart';
+import 'package:sher_acc_erp/view/pages/company_settings_page.dart';
+import 'package:sher_acc_erp/view/pages/general_settings_page.dart';
 import 'package:sher_acc_erp/view/widgets/app_settings_widget.dart';
 import 'package:sher_acc_erp/view/widgets/button_widget.dart';
 import 'package:sher_acc_erp/view/widgets/switch_button_widget.dart';
@@ -10,6 +13,13 @@ class SettingsPage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final pageList = [
+      GeneralSettingsPage.routePath,
+      CompanySettingsPage.routePath,
+      CompanySettingsPage.routePath,
+      CompanySettingsPage.routePath,
+      CompanySettingsPage.routePath,
+    ];
     var onChanged = useState<bool>(false);
     final constants = AppSettingsConstants();
     return Scaffold(
@@ -43,7 +53,9 @@ class SettingsPage extends HookWidget {
               itemBuilder: (context, index) {
                 return AppSettingsWidget(
                   txt: constants.appSettingsListTxt[index],
-                  onPressed: () {},
+                  onPressed: () {
+                    context.push(pageList[index]);
+                  },
                 );
               },
             ),
@@ -116,6 +128,7 @@ class SettingsPage extends HookWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ButtonWidget(
+                    color: Colors.black,
                     txt: constants.resetTxt,
                     onPressed: () {},
                   ),
@@ -123,6 +136,7 @@ class SettingsPage extends HookWidget {
                     width: 10,
                   ),
                   ButtonWidget(
+                    color: Colors.black,
                     txt: constants.addLogoTxt,
                     onPressed: () {},
                   ),

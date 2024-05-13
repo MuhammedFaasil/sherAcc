@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TextfieldWidget extends StatelessWidget {
+  final bool obscureText;
   final String icons;
   final Widget? iconsSufix;
   final String txt;
@@ -10,7 +11,8 @@ class TextfieldWidget extends StatelessWidget {
       required this.icons,
       required this.txt,
       this.iconsSufix,
-      required this.controler});
+      required this.controler,
+      required this.obscureText});
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +29,7 @@ class TextfieldWidget extends StatelessWidget {
           )
         ]),
         child: TextField(
+          obscureText: obscureText,
           controller: controler,
           decoration: InputDecoration(
               prefixIcon: Image.asset(icons),

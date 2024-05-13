@@ -1,10 +1,15 @@
 import 'package:go_router/go_router.dart';
 import 'package:sher_acc_erp/view/pages/about_developer_page.dart';
+import 'package:sher_acc_erp/view/pages/add_itemtosale_page.dart';
+import 'package:sher_acc_erp/view/pages/company_settings_page.dart';
 import 'package:sher_acc_erp/view/pages/dash_page.dart';
 import 'package:sher_acc_erp/view/pages/expenses_page.dart';
+import 'package:sher_acc_erp/view/pages/general_settings_page.dart';
 import 'package:sher_acc_erp/view/pages/home_page.dart';
 import 'package:sher_acc_erp/view/pages/login_page.dart';
 import 'package:sher_acc_erp/view/pages/other_registration_page.dart';
+import 'package:sher_acc_erp/view/pages/sales_page.dart';
+import 'package:sher_acc_erp/view/pages/salesman_page.dart';
 import 'package:sher_acc_erp/view/pages/software_general_setting_page.dart';
 import 'package:sher_acc_erp/view/pages/software_settings_page.dart';
 import 'package:sher_acc_erp/view/pages/splash_screen.dart';
@@ -65,5 +70,25 @@ final router = GoRouter(initialLocation: SplashScreen.routePath, routes: [
   GoRoute(
     path: OtherRegistrationPage.routePath,
     builder: (context, state) => const OtherRegistrationPage(),
+  ),
+  GoRoute(
+    path: SalesPage.routePath,
+    builder: (context, state) => const SalesPage(),
+  ),
+  GoRoute(
+    path: AddItemToSalePage.routePath,
+    builder: (context, state) => const AddItemToSalePage(),
+  ),
+  GoRoute(
+    path: SalesmanPage.routePath,
+    builder: (context, state) => const SalesmanPage(),
+  ),
+  GoRoute(
+    path: GeneralSettingsPage.routePath,
+    builder: (context, state) => const GeneralSettingsPage(),
+  ),
+  GoRoute(
+    path: CompanySettingsPage.routePath,
+    builder: (context, state) => const CompanySettingsPage(),
   ),
 ]);

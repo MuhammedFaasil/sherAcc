@@ -21,7 +21,7 @@ class TodayReportPage extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              BranchSelectWidget(),
+              BranchSelectWidget(headTxt: 'Branch', items: ['SHOPE'],),
               SizedBox(
                 height: 10,
               ),

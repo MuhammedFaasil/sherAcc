@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sher_acc_erp/core/constants/loginpage_constants/login_page_constants.dart';
 import 'package:sher_acc_erp/view/pages/home_page.dart';
 import 'package:sher_acc_erp/view/widgets/textfield_widget.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends HookWidget {
   static const routePath = '/loginPage';
   const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final obscureText = useState(true);
     final TextEditingController userNameController = TextEditingController();
     final TextEditingController passwordControlle = TextEditingController();
     final constants = LoginConstants();
@@ -42,6 +44,7 @@ class LoginPage extends StatelessWidget {
                 icons: constants.userNameIcon,
                 txt: constants.userNameTxt,
                 controler: userNameController,
+                obscureText: false,
               ),
               const SizedBox(
                 height: 40,
@@ -49,8 +52,13 @@ class LoginPage extends StatelessWidget {
               TextfieldWidget(
                 icons: constants.passwordIcon,
                 txt: constants.passwordTxt,
-                iconsSufix: Image.asset(constants.eyeIcon),
+                iconsSufix: GestureDetector(
+                    onTap: () {
+                      obscureText.value = !obscureText.value;
+                    },
+                    child: Image.asset(constants.eyeIcon)),
                 controler: passwordControlle,
+                obscureText: obscureText.value,
               ),
               const SizedBox(
                 height: 40,

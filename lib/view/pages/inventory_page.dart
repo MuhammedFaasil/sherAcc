@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:sher_acc_erp/core/constants/inventory_constants/inventory_constants.dart';
+import 'package:sher_acc_erp/view/pages/sales_page.dart';
 import 'package:sher_acc_erp/view/widgets/items_grid_widget.dart';
 
 class InventoryPage extends StatelessWidget {
@@ -7,6 +9,22 @@ class InventoryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final pageList = [
+      SalesPage.routePath,
+      SalesPage.routePath,
+      SalesPage.routePath,
+      SalesPage.routePath,
+      SalesPage.routePath,
+      SalesPage.routePath,
+      SalesPage.routePath,
+      SalesPage.routePath,
+      SalesPage.routePath,
+      SalesPage.routePath,
+      SalesPage.routePath,
+      SalesPage.routePath,
+      SalesPage.routePath,
+      SalesPage.routePath,
+    ];
     final constants = InventoryConstants();
     return Scaffold(
       backgroundColor: const Color(0xffF2F2F2),
@@ -26,7 +44,9 @@ class InventoryPage extends StatelessWidget {
                 itemCount: 14,
                 itemBuilder: (context, index) {
                   return ItemsGridWidget(
-                      onTap: () {},
+                      onTap: () {
+                        context.push(pageList[index]);
+                      },
                       iconsUrl: constants.inventoryImages[index],
                       nameTxt: constants.inventoryTxt[index]);
                 },

@@ -11,10 +11,13 @@ class DropDownWidget extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final dropdownValue = useState<String>(initalValue ?? items.first);
-    return SizedBox(
-      height: 150,
-      width: 60,
-      child: Center(
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        vertical: 7,
+      ),
+      child: SizedBox(
+        height: 300,
+        width: 200,
         child: DropdownButtonHideUnderline(
             child: DropdownButton<String>(
           value: dropdownValue.value,
@@ -32,14 +35,18 @@ class DropDownWidget extends HookWidget {
           items: items.map<DropdownMenuItem<String>>((String value) {
             return DropdownMenuItem<String>(
               value: value,
-              child: Center(
-                child: Text(
-                  value,
-                  style: const TextStyle(
-                      fontFamily: 'poppins',
-                      fontWeight: FontWeight.w500,
-                      fontSize: 13),
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    textAlign: TextAlign.center,
+                    value,
+                    style: const TextStyle(
+                        fontFamily: 'poppins',
+                        fontWeight: FontWeight.w500,
+                        fontSize: 13),
+                  ),
+                ],
               ),
             );
           }).toList(),

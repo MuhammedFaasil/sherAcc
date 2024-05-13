@@ -20,15 +20,16 @@ class SoftwareGeneralPage extends StatelessWidget {
         child: AppbarWidgget(
           headTxt: 'General',
           onPressed: () => Navigator.of(context).pop(),
-          iconfirst: 'assets/icons/Filter_icon.png',
+          iconFirst: Image.asset('assets/icons/Filter_icon.png'),
           onTapFirst: () {},
-          iconSecond: 'assets/icons/Save_icon.png',
+          iconSecondPath: 'assets/icons/Save_icon.png',
           onTapSecond: () {},
         ),
       ),
       body: DefaultTabController(
         length: 2,
         child: SingleChildScrollView(
+          physics: const NeverScrollableScrollPhysics(),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Column(
